@@ -49,6 +49,16 @@ contract Board is Ownable {
     }
 
     // Sharing
+    //
+    // Likely to be reworked into a more meaningful system...
+    // Currently we just give a portion of the bounty to anyone who
+    // shares a post, but that's not great.
+    //
+    // Better would be to track a graph of shares, and reward the people
+    // who lead to more views/likes/shares down the line. Would require
+    // a "campaign" to be started with a bounty and a length, and then
+    // the bounty is distributed to the sharers at the end of the campaign
+    // duration.
     function bounty(uint postId) public view returns (uint) {
         return shareBounties[postId];
     }
@@ -64,12 +74,16 @@ contract Board is Ownable {
             // for the earlier shares and eventually most of the bounty is claimed.
             uint claimedBounty = shareBounties[postId] / 4;
             shareBounties[postId] -= claimedBounty;
-            payable(msg.sender).transfer(claimedBounty);
+            earnings[msg.sender] += claimedBounty;
         }
         emit Shared(postId, msg.sender);
     }
 
     // Tipping
+    //
+    // As an equivalent to "likes", you may instead "tip" a post some amount
+    // of money. This tip will be available for the post to collect at a later
+    // date.
     function sendTip(uint postId) public payable requireValue {
         address author = postAuthors[postId];
         earnings[author] += msg.value;
@@ -77,6 +91,9 @@ contract Board is Ownable {
     }
 
     // Earnings
+    //
+    // Derived from tips and by sharing posts with bounties, users will be
+    // able to collect their earnings here.
     function checkEarnings() public view returns (uint) {
         return earnings[msg.sender];
     }
