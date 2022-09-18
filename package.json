@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "What? Contracts or something.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "fmt": "prettier . --write",
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "build": "vite build"
   },
   "repository": {
     "type": "git",
@@ -18,5 +21,16 @@
   "homepage": "https://github.com/foxfriends/toucan#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^4.7.3"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.6",
+    "autoprefixer": "^10.4.11",
+    "eslint": "^8.23.1",
+    "postcss": "^8.4.16",
+    "postcss-load-config": "^4.0.1",
+    "prettier": "^2.7.1",
+    "svelte": "^3.50.1",
+    "svelte-preprocess": "^4.10.7",
+    "vite": "^3.1.2"
   }
 }
