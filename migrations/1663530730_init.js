@@ -1,5 +1,5 @@
-const Board = artifacts.require("Board");
+const Migrations = artifacts.require("Migrations");
 
-module.exports = function (deployer) {
-  deployer.deploy(Board);
+module.exports = async function (deployer, network, accounts) {
+  await deployer.deploy(Migrations);
 };

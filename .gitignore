@@ -3,3 +3,4 @@
 /artifacts
 /out
 /build
+.env

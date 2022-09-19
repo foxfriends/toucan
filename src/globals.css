@@ -1,0 +1,48 @@
+:root {
+  font-family: sans-serif;
+  font-size: 16px;
+
+  --measure: 60ch;
+
+  --ratio: 1.5;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+}
+
+* {
+  font-family: inherit;
+  font-size: inherit;
+  max-inline-size: var(--measure);
+
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer,
+input,
+form,
+stack-l {
+  max-inline-size: none;
+}
+
+code {
+  font-family: monospace;
+}

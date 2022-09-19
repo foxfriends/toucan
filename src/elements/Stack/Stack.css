@@ -1,0 +1,13 @@
+stack-l {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+stack-l[recursive] * + * {
+  margin-block-start: var(--space, var(--s1));
+}
+
+stack-l:not([recursive]) > * + * {
+  margin-block-start: var(--space, var(--s1));
+}
