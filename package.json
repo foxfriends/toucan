@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/foxfriends/toucan#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts": "^4.9.6",
     "ethers": "^5.7.1"
   },
   "devDependencies": {
